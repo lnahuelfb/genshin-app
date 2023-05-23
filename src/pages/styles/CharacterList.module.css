@@ -1,0 +1,19 @@
+.item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  font-size: 2rem;
+  width: 15rem;
+  height: 15rem;
+  border: 1px solid red;
+  border-radius: 1.5rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  gap: 1.5rem;
+  width: 100vw;
+  justify-items: center;
+}

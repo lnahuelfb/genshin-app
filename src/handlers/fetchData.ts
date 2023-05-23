@@ -1,9 +1,9 @@
 import { GenshinCharacter } from "../interfaces/characters"
 import { GenshinWeapon } from "../interfaces/weapons"
 
-export const fetchCharacterData = async (API: string, setCharacter: React.Dispatch<React.SetStateAction<GenshinCharacter | undefined>>) => {
+export const fetchCharacterData = async (character: string, setCharacter: React.Dispatch<React.SetStateAction<GenshinCharacter | undefined>>) => {
   try {
-    const data = await fetch(API)
+    const data = await fetch(`https://genshin-db-api.vercel.app/api/characters?query=${character}&matchAliases=true`)
     const res = await data.json()
 
     setCharacter(res)
@@ -12,9 +12,9 @@ export const fetchCharacterData = async (API: string, setCharacter: React.Dispat
   }
 }
 
-export const fetchWeaponData = async (API: string, setWeapon: React.Dispatch<React.SetStateAction<GenshinWeapon | undefined>>) => {
+export const fetchWeaponData = async (weapon: string, setWeapon: React.Dispatch<React.SetStateAction<GenshinWeapon | undefined>>) => {
   try {
-    const data = await fetch(API)
+    const data = await fetch(`https://genshin-db-api.vercel.app/api/weapons?query=${weapon}&matchAliases=true`)
     const res = await data.json()
 
     setWeapon(res)

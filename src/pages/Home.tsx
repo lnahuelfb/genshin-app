@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GenshinCharacter } from '../interfaces/characters'
-import { fetchCharacterData } from '../handlers/functions'
+import { fetchCharacterData } from '../handlers/fetchData'
 
 const Home = () => {
   const [character, setCharacter] = useState<GenshinCharacter>()

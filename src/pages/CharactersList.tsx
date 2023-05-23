@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { fetchCharactersList } from "../handlers/functions"
-import { Link } from "react-router-dom"
+import { fetchCharactersList } from "../handlers/fetchData"
+import CharacterCard from "../components/CharacterCard"
+import styles from './styles/CharacterList.module.css'
 const CharactersList = () => {
   const [CharactersList, setCharactersList] = useState<string[]>([])
 
@@ -13,12 +14,13 @@ const CharactersList = () => {
   }, [])
 
   return (
-    <ul>
+    <ul className={styles.list}>
       {
         CharactersList?.map(character =>
-          <li>
-            <Link to={`${character}`} key={character}>{character}</Link>
-          </li>
+          // <li className={styles.item}>
+          //   <Link to={`${character}`} key={character}>{character}</Link>
+          // </li>
+          <CharacterCard character={character} key={character}/>
         )}
     </ul>
   )

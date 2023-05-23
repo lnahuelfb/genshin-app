@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchWeaponsList } from "../handlers/functions"
+import { fetchWeaponsList } from "../handlers/fetchData"
 import { Link } from "react-router-dom"
 
 const WeaponList = () => {

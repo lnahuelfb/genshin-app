@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { GenshinWeapon } from "../interfaces/weapons"
-import { fetchWeaponData } from "../handlers/functions"
+import { fetchWeaponData } from "../handlers/fetchData"
 import { useParams } from "react-router-dom"
 
 const Weapon = () => {
@@ -8,7 +8,9 @@ const Weapon = () => {
   const { weapon } = useParams()
 
   useEffect(() => {
-    fetchWeaponData(`https://genshin-db-api.vercel.app/api/weapons?query=${weapon}&matchAliases=true`, setWeaponData)
+    if (typeof weapon === 'string') {
+      fetchWeaponData(weapon, setWeaponData)
+    }
     console.log(weaponData)
   }, [weapon])
 
