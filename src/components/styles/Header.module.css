@@ -1,12 +1,12 @@
 .container {
-  width: 100vw;
   height: 125px;
   display: flex;
   align-items: center;
 }
 
 .logo {
-  width: 12.5rem;
+  height: inherit;
+  padding: 0;
 }
 
 .title {

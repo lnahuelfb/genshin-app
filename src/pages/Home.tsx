@@ -1,18 +1,26 @@
 import { useEffect, useState } from 'react'
 import { GenshinCharacter } from '../interfaces/characters'
-import { fetchCharacterData } from '../handlers/fetchData'
+import { fetchCharacterData, fetchCharactersList } from '../handlers/fetchData'
 
 const Home = () => {
   const [character, setCharacter] = useState<GenshinCharacter>()
+  const [CharacterList, setCharactersList] = useState<string[]>([])
+
+  const fetchData = async () => {
+    await fetchCharactersList(setCharactersList)
+    await fetchCharacterData(CharacterList[1], setCharacter)
+  }
 
   useEffect(() => {
-    fetchCharacterData('https://genshin-db-api.vercel.app/api/characters?query=dehya', setCharacter)
+    fetchData()
   }, [])
 
   return (
     <div>
       <h1>Home</h1>
-      <img src={character?.images.icon} />
+      {
+        <img src={character?.images.icon} alt={character?.name} />
+      }
     </div>
   )
 }

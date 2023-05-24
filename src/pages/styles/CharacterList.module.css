@@ -12,8 +12,8 @@
 
 .list {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  gap: 1.5rem;
-  width: 100vw;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  gap: 1rem;
   justify-items: center;
+  justify-content: center;
 }

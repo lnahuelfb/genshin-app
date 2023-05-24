@@ -7,6 +7,10 @@ const Weapon = () => {
   const [weaponData, setWeaponData] = useState<GenshinWeapon>()
   const { weapon } = useParams()
 
+  if (typeof weapon === 'string') {
+    window.document.title = weapon
+  }
+
   useEffect(() => {
     if (typeof weapon === 'string') {
       fetchWeaponData(weapon, setWeaponData)

@@ -1,6 +1,10 @@
+import './styles/Footer.module.css'
+
 const Footer = () => {
   return (
-    <footer>Footer</footer>
+    <footer>
+      Hecho con ❤️ por Nahuel Fernandez Beschtedt
+    </footer>
   )
 }
 

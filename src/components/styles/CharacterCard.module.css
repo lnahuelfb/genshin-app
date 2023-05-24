@@ -1,0 +1,13 @@
+article {
+  text-align: center;
+  font-size: 1.6rem;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  max-height: max-content;
+  text-overflow: clip;
+}
+
+img {
+  max-width: 25rem;
+  padding: 1.6rem;
+}

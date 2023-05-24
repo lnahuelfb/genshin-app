@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react"
 import { fetchWeaponsList } from "../handlers/fetchData"
-import { Link } from "react-router-dom"
+import CharacterCard from "../components/CharacterCard"
+import styles from './styles/CharacterList.module.css'
 
 const WeaponList = () => {
   const [weaponsList, setWeaponsList] = useState<string[]>([])
+  window.document.title = 'Weapons'
 
   useEffect(() => {
     fetchWeaponsList(setWeaponsList)
   }, [])
 
   return (
-    <div>
-      Weapons
+    <ul className={styles.list}>
       {
-        weaponsList?.map((weapon) => <li key={weapon}><Link to={weapon}>{weapon}</Link></li>)
+        weaponsList?.map((weapon) => <CharacterCard weapon={weapon} key={weapon} />)
       }
-    </div>
+    </ul>
   )
 }
 
