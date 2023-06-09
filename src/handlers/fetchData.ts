@@ -3,10 +3,15 @@ import { GenshinWeapon } from "../interfaces/weapons"
 
 export const fetchCharacterData = async (character: string, setCharacter: React.Dispatch<React.SetStateAction<GenshinCharacter | undefined>>) => {
   try {
-    const data = await fetch(`https://genshin-db-api.vercel.app/api/characters?query=${character}&matchAliases=true`)
-    const res = await data.json()
+    const res = await fetch(`https://genshin-db-api.vercel.app/api/characters?query=${character}&matchAliases=true`)
 
-    setCharacter(res)
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`)
+    }
+
+    const data = await res.json()
+
+    setCharacter(data)
   } catch (error) {
     console.error(error)
   }
@@ -14,10 +19,15 @@ export const fetchCharacterData = async (character: string, setCharacter: React.
 
 export const fetchWeaponData = async (weapon: string, setWeapon: React.Dispatch<React.SetStateAction<GenshinWeapon | undefined>>) => {
   try {
-    const data = await fetch(`https://genshin-db-api.vercel.app/api/weapons?query=${weapon}&matchAliases=true`)
-    const res = await data.json()
+    const res = await fetch(`https://genshin-db-api.vercel.app/api/weapons?query=${weapon}&matchAliases=true`)
 
-    setWeapon(res)
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`)
+    }
+
+    const data = await res.json()
+
+    setWeapon(data)
   } catch (error) {
     console.error(error)
   }
@@ -25,10 +35,14 @@ export const fetchWeaponData = async (weapon: string, setWeapon: React.Dispatch<
 
 export const fetchCharactersList = async (setCharactersList: React.Dispatch<React.SetStateAction<string[]>>) => {
   try {
-    const data = await fetch('https://genshin-db-api.vercel.app/api/characters?query=names&matchAliases=true&matchCategories=true')
-    const res = await (data.json())
+    const res = await fetch('https://genshin-db-api.vercel.app/api/characters?query=names&matchAliases=true&matchCategories=true')
 
-    setCharactersList(res)
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`)
+    }
+    const data = await (res.json())
+
+    setCharactersList(data)
   } catch (error) {
     console.error(error)
   }
@@ -36,11 +50,16 @@ export const fetchCharactersList = async (setCharactersList: React.Dispatch<Reac
 
 export const fetchWeaponsList = async (setWeaponsList: React.Dispatch<React.SetStateAction<string[]>>) => {
   try {
-    const data = await fetch('https://genshin-db-api.vercel.app/api/weapons?query=names&matchCategories=true')
-    const res: string[] = await (data.json())
+    const res = await fetch('https://genshin-db-api.vercel.app/api/weapons?query=names&matchCategories=true')
 
-    const resArr = new Set(res)
-    const result = [...resArr]
+    if (!res.ok) {
+      throw new Error(`Error HTTP: ${res.status}`)
+    }
+
+    const data: string[] = await (res.json())
+
+    const dataArr = new Set(data)
+    const result = [...dataArr]
 
     setWeaponsList(result)
   } catch (error) {

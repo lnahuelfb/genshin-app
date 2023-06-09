@@ -10,12 +10,20 @@ const CharactersList = () => {
   }, [])
 
   return (
-    <ul className={styles.list}>
-      {
-        CharactersList?.map(character =>
-          <CharacterCard character={character} key={character} />
-        )}
-    </ul>
+    <>
+      <h2>filter</h2>
+      <select name="" id="" >
+        <option value="electro">Electro</option>
+        <option value="cryo">Cryo</option>
+      </select>
+      <ul className={styles.list}>
+        {
+          CharactersList?.map(character =>
+            <CharacterCard character={character} key={character} />
+          )
+        }
+      </ul>
+    </>
   )
 }
 
