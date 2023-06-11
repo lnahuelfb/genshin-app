@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { fetchWeaponsList } from "../handlers/fetchData"
-import CharacterCard from "../components/CharacterCard"
+import { fetchWeaponsList } from "@handlers/fetchData"
+import CharacterCard from "@components/CharacterCard"
 import styles from './styles/CharacterList.module.css'
 
 const WeaponList = () => {

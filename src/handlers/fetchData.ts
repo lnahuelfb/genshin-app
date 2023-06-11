@@ -1,5 +1,5 @@
-import { GenshinCharacter } from "../interfaces/characters"
-import { GenshinWeapon } from "../interfaces/weapons"
+import { GenshinCharacter } from "@interfaces/characters"
+import { GenshinWeapon } from "@interfaces/weapons"
 
 export const fetchCharacterData = async (character: string, setCharacter: React.Dispatch<React.SetStateAction<GenshinCharacter | undefined>>) => {
   try {

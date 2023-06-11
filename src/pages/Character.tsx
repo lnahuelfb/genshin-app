@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { fetchCharacterData } from "../handlers/fetchData"
-import { GenshinCharacter } from "../interfaces/characters"
+import { fetchCharacterData } from "@handlers/fetchData"
+import { GenshinCharacter } from "@interfaces/characters"
 
 const Character = () => {
   const [characterData, setCharacterData] = useState<GenshinCharacter>()

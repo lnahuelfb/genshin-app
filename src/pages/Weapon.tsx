@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { GenshinWeapon } from "../interfaces/weapons"
-import { fetchWeaponData } from "../handlers/fetchData"
+import { GenshinWeapon } from "@interfaces/weapons"
+import { fetchWeaponData } from "@handlers/fetchData"
 import { useParams } from "react-router-dom"
 
 const Weapon = () => {

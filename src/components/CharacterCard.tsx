@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react"
-import { GenshinCharacter } from "../interfaces/characters"
-import { fetchCharacterData, fetchWeaponData } from "../handlers/fetchData"
+import { fetchCharacterData, fetchWeaponData } from "@handlers/fetchData"
 import { Link } from "react-router-dom"
+import { GenshinCharacter } from "@interfaces/characters"
+import { GenshinWeapon } from "@interfaces/weapons"
 import './styles/CharacterCard.module.css'
-import { GenshinWeapon } from "../interfaces/weapons"
 
 type Props = {
   character?: string
